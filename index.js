@@ -1,3 +1,4 @@
+// variables 
 var isGameOver;
 var score;
 
@@ -13,17 +14,22 @@ var player;
 
 var obstacleSprites;
 
+// Function to startup the game 
 function setup() {
     isGameOver = false;
     score = 0;
-    
+
+    // Creating the canvas
     createCanvas(900, 900);
     background(150, 200, 250); 
     createCanvas = CENTER; 
+    
+    // Creating sprite groups 
     groundSprites = new Group();
     
     numGroundSprites = width/GROUND_SPRITE_WIDTH+1;
 
+    // Looping through the sprite groups and adding the block as the game goes on 
     for (var n = 0; n < numGroundSprites; n++) {
         var groundSprite = createSprite(n*50, height-25, GROUND_SPRITE_WIDTH, GROUND_SPRITE_HEIGHT);
         groundSprites.add(groundSprite);
@@ -34,6 +40,7 @@ function setup() {
     obstacleSprites = new Group();
 }
 
+// Function of drawing the sprites such as the background and the blocks 
 function draw() {
     if (isGameOver) {
         background(0);
